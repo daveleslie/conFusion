@@ -7,11 +7,51 @@
     fxLayoutGap.xs="0">
 
   <div fxFlex="40">
-    <p>Display the details of the Dish here</p>
+    <md-card *ngIf="dish">
+      <md-card-header>
+        <md-card-title>
+          <h3>{{dish.name | uppercase}}</h3>
+        </md-card-title>
+        <!-- <md-card-subtitle>Subtitle</md-card-subtitle> -->
+      </md-card-header>
+      <img md-card-image src={{dish.image}} alt={{dish.name}}>
+      <md-card-content>
+        <p>{{dish.description}}</p>
+      </md-card-content>
+      <md-card-actions>
+        <button md-button>LIKE</button>
+        <button md-button>SHARE</button>
+      </md-card-actions>
+      <!-- <md-card-footer>
+        Footer
+      </md-card-footer> -->
+    </md-card>  
   </div>
 
-  <div fxFlex="40">
-    <p>Display the list of comments here</p>
+  <div fxFlex="40" *ngIf="dish">
+    <md-card>
+        <md-card-header>
+            <md-card-title><h3>Comments</h3></md-card-title>
+            <!-- <md-card-subtitle>Subtitle</md-card-subtitle> -->
+        </md-card-header>
+        <!-- <img mdCardImage src="Card wide image source"> -->
+        <md-card-content>
+            <md-list>
+              <md-list-item *ngFor="let comment of dish.comments">
+                <p md-line>{{comment.comment}}</p>
+                <p md-line>{{comment.rating}} stars</p>
+                <p md-line>-- {{comment.author}} {{comment.date | date}}</p>
+              </md-list-item>
+            </md-list>
+        </md-card-content>
+        <!-- <md-card-actions align="start|end">
+            <button md-button (click)="onAction1">Action1</button>
+            
+        </md-card-actions> -->
+        <!-- <md-card-footer>
+            Footer
+        </md-card-footer> -->
+    </md-card>
   </div>
 
 </div>
