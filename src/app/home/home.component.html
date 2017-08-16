@@ -2,7 +2,7 @@
      fxLayout="row"
      fxLayout.sm="column"
      fxLayout.xs="column"
-     fxLayoutAlign.gt-md="space-around center"
+     fxLayoutAlign.gt-md="space-around start"
      fxLayoutGap="10px">
 
 <md-card *ngIf="dish" fxFlex>
@@ -30,6 +30,18 @@
   <md-card-content>
     <p>{{promotion.description}}
     </p>
+  </md-card-content>
+</md-card>
+
+<md-card *ngIf="featuredLeader" fxFlex>
+  <md-card-header>
+    <md-card-title><h3>{{featuredLeader.name}} {{featuredLeader.abbr}}</h3></md-card-title>
+    <!-- <md-card-subtitle>{{featuredLeader.abbr}}</md-card-subtitle> -->
+  </md-card-header>
+  <img mdCardImage src={{featuredLeader.image}}>
+  <md-card-content>
+    <h4>{{featuredLeader.designation}}</h4>
+    <p>{{featuredLeader.description}}</p>    
   </md-card-content>
 </md-card>
 

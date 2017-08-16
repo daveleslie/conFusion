@@ -10,7 +10,6 @@ import { LeaderService } from '../services/leader.service';
 })
 export class AboutComponent implements OnInit {
 
-  @Input()
   leaders: Leader[];
 
   constructor(private leaderService: LeaderService) { }
